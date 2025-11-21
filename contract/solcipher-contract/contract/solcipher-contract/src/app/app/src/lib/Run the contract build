@@ -1,0 +1,3 @@
+cd contract/solcipher-contract
+cargo build --release --target wasm32-unknown-unknown
+# → target/wasm32-unknown-unknown/release/solcipher-contract.wasm
