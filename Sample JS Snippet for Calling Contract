@@ -1,0 +1,19 @@
+import { CasperClient, CLPublicKey, DeployUtil } from 'casper-js-sdk';
+
+const client = new CasperClient('https://rpc.testnet.casper.network');
+
+async function createShare(cid, recipientPubKey, expiry) {
+  const publicKey = await getWalletPublicKey();  // From Casper Signer
+  const deploy = DeployUtil.makeDeploy(
+    new DeployUtil.DeployParams(publicKey, 'casper-test'),
+    DeployUtil.ExecutableDeployItem.newStoredContractByHash(
+      contractHash,
+      'create_share',
+      { cid, recipient: CLPublicKey.fromHex(recipientPubKey), expiry }
+    ),
+    DeployUtil.standardPayment(1000000000)  // Gas fee
+  );
+  const signedDeploy = await signDeploy(deploy);  // Use Casper Signer
+  const deployHash = await client.putDeploy(signedDeploy);
+  // Wait for execution
+}
