@@ -1,0 +1,8 @@
+[package]
+name = "casper-cipher"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+casper-contract = "1.4.4"  # Check latest version
+casper-types = "1.4.4"
