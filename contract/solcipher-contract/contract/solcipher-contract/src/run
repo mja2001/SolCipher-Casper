@@ -1,0 +1,3 @@
+git add .
+git commit -m "Add full Casper smart contract (v0.1.0)"
+git push
