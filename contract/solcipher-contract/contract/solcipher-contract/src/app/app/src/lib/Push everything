@@ -1,0 +1,3 @@
+git add .
+git commit -m "Complete Casper port - contract + frontend (100% functional)"
+git push
