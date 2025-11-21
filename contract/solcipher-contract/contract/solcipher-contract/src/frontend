@@ -1,0 +1,9 @@
+# From your SolCipher original repo (you have it locally)
+cp -r /path/to/SolCipher/app ./app
+
+# Or if you want me to do it clean:
+git remote add original https://github.com/mja2001/SolCipher.git
+git fetch original
+git merge original/main --allow-unrelated-histories -s ours --no-edit
+git checkout original/main app
+git commit -m "Port original frontend as base"
